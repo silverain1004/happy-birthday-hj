@@ -1,0 +1,528 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg1: #1a0a2e;
+  --bg2: #2d1b4e;
+  --accent: #ff6b9d;
+  --accent2: #c44569;
+  --text: #f8f4ff;
+  --muted: rgba(248, 244, 255, 0.72);
+  --card: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.12);
+  --font: "교보손글씨", "Malgun Gothic", "Apple SD Gothic Neo", system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+}
+
+@font-face {
+  font-family: "교보손글씨";
+  src: local("KyoboHandwriting2025lyb"),
+    url("./font/KyoboHandwriting2025lyb.otf") format("opentype"),
+    url("./font/KyoboHandwriting2025lyb.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--text);
+  background: radial-gradient(ellipse 120% 80% at 50% 0%, #4a1942 0%, transparent 55%),
+    linear-gradient(165deg, var(--bg1), var(--bg2) 45%, #16213e);
+  background-attachment: fixed;
+  -webkit-tap-highlight-color: rgba(255, 107, 157, 0.2);
+}
+
+#confetti {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 전체 화면 스냅 섹션 */
+.snap-section {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  padding: clamp(1rem, 4vw, 2rem);
+  padding-left: max(clamp(1rem, 4vw, 2rem), env(safe-area-inset-left, 0px));
+  padding-right: max(clamp(1rem, 4vw, 2rem), env(safe-area-inset-right, 0px));
+  padding-top: max(clamp(1rem, 4vw, 2rem), env(safe-area-inset-top, 0px));
+  padding-bottom: max(clamp(1rem, 4vw, 2rem), env(safe-area-inset-bottom, 0px));
+}
+
+.intro-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-inner {
+  width: 100%;
+  max-width: 28rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  padding: 2rem 1.35rem;
+  border-radius: 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+.scroll-hint {
+  margin: 1.75rem 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.2;
+  background: linear-gradient(120deg, #fff 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lead {
+  margin: 0 0 1.75rem;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+.btn {
+  cursor: pointer;
+  font: inherit;
+  color: var(--text);
+  min-height: 44px;
+  padding: 0.65rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 8px 24px rgba(196, 69, 105, 0.45);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  touch-action: manipulation;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(196, 69, 105, 0.55);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* 연도별 풀스크린 패널 */
+.year-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 56rem;
+  margin-inline: auto;
+}
+
+.year-header {
+  flex-shrink: 0;
+}
+
+.year-date {
+  display: block;
+  margin: 0 0 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.year-title {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.year-note {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.year-photos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.year-hero-fig {
+  margin: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.year-hero {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: min(52vh, 480px);
+  object-fit: cover;
+}
+
+.year-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.year-gallery img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 0.65rem;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 520px) {
+  .year-gallery {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .year-gallery img:last-child {
+    grid-column: 1 / -1;
+    max-height: 220px;
+    aspect-ratio: auto;
+  }
+}
+
+/* 모바일·터치 */
+@media (max-width: 640px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+
+  .snap-section {
+    padding-right: calc(max(1rem, env(safe-area-inset-right, 0px)) + 2.85rem);
+  }
+
+  .intro-inner {
+    max-width: 100%;
+  }
+
+  .card {
+    padding: 1.65rem 1.1rem;
+    border-radius: 1rem;
+  }
+
+  .lead {
+    font-size: 0.95rem;
+  }
+
+  .year-panel {
+    gap: 1rem;
+  }
+
+  .year-title {
+    padding-right: 0;
+    word-break: keep-all;
+  }
+
+  .year-note {
+    font-size: 0.9rem;
+  }
+
+  .year-hero {
+    max-height: min(42vh, 360px);
+  }
+
+  .year-hero-fig {
+    border-radius: 0.75rem;
+  }
+
+  .year-gallery img {
+    border-radius: 0.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .year-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .year-gallery img:last-child {
+    grid-column: auto;
+    max-height: none;
+    aspect-ratio: 1;
+  }
+}
+
+@media (max-width: 340px) {
+  .snap-section {
+    padding-left: max(0.7rem, env(safe-area-inset-left, 0px));
+    padding-right: max(0.7rem, env(safe-area-inset-right, 0px));
+    padding-top: max(0.8rem, env(safe-area-inset-top, 0px));
+    padding-bottom: calc(max(0.8rem, env(safe-area-inset-bottom, 0px)) + 4.7rem);
+  }
+
+  .card {
+    padding: 1.25rem 0.85rem;
+    border-radius: 0.85rem;
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+  }
+
+  h1 {
+    font-size: clamp(1.35rem, 7.6vw, 1.65rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .lead {
+    margin-bottom: 1.1rem;
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
+
+  .scroll-hint {
+    margin-top: 1rem;
+    font-size: 0.72rem;
+  }
+
+  .year-title {
+    font-size: 1.16rem;
+    line-height: 1.25;
+  }
+
+  .year-date {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+  }
+
+  .year-note {
+    font-size: 0.84rem;
+    line-height: 1.45;
+  }
+
+  .year-photos {
+    gap: 0.55rem;
+  }
+
+  .year-hero {
+    max-height: min(33dvh, 220px);
+  }
+}
+
+/* 고정 배경은 모바일에서 스크롤 버벅임 방지 */
+@media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
+/* 우측 연도 네비 */
+.year-nav {
+  position: fixed;
+  right: max(0.5rem, env(safe-area-inset-right, 0px));
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.45rem 0.3rem;
+  border-radius: 999px;
+  background: rgba(26, 10, 46, 0.55);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.year-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0 0.4rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease, background 0.15s ease;
+  touch-action: manipulation;
+}
+
+.year-nav-link:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.year-nav-link.is-active {
+  color: var(--text);
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  box-shadow: 0 4px 14px rgba(196, 69, 105, 0.4);
+}
+
+.year-nav-dot {
+  display: block;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.85;
+}
+
+@media (max-width: 768px) {
+  .year-nav {
+    right: max(0.35rem, env(safe-area-inset-right, 0px));
+    gap: 0.2rem;
+    padding: 0.28rem 0.18rem;
+    border-radius: 12px;
+  }
+
+  .year-nav-link {
+    min-width: 2.1rem;
+    min-height: 2.1rem;
+    padding: 0 0.25rem;
+    font-size: 0.66rem;
+  }
+}
+
+/* iPhone 16 Pro (393px) 중심 미세 조정 */
+@media (max-width: 430px) {
+  .snap-section {
+    padding-bottom: calc(max(1rem, env(safe-area-inset-bottom, 0px)) + 5.25rem);
+    padding-right: max(1rem, env(safe-area-inset-right, 0px));
+  }
+
+  .year-nav {
+    top: auto;
+    bottom: max(0.5rem, env(safe-area-inset-bottom, 0px));
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    flex-direction: row;
+    gap: 0.16rem;
+    padding: 0.2rem 0.28rem;
+    width: min(92vw, 20rem);
+    justify-content: space-between;
+    border-radius: 11px;
+  }
+
+  .year-nav-link {
+    min-width: 2rem;
+    min-height: 2rem;
+    font-size: 0.64rem;
+  }
+
+  .year-hero {
+    max-height: min(38dvh, 330px);
+  }
+}
+
+@media (max-width: 340px) {
+  .year-nav {
+    width: min(96vw, 18.2rem);
+    padding: 0.16rem 0.2rem;
+    gap: 0.12rem;
+    border-radius: 10px;
+  }
+
+  .year-nav-link {
+    min-width: 1.72rem;
+    min-height: 1.72rem;
+    padding: 0 0.1rem;
+    font-size: 0.56rem;
+    letter-spacing: 0;
+  }
+
+  .year-nav-dot {
+    width: 0.36rem;
+    height: 0.36rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+  }
+
+  .btn {
+    transition: none;
+  }
+
+  .year-nav-link {
+    transition: none;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .year-nav-link:hover,
+  .btn:hover {
+    background: unset;
+    box-shadow: none;
+    transform: none;
+  }
+}
+

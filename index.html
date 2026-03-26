@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>생일 축하</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <nav class="year-nav" aria-label="연도로 이동">
+    <a class="year-nav-link" href="#intro" title="인트로" aria-label="인트로"><span class="year-nav-dot" aria-hidden="true"></span></a>
+    <a class="year-nav-link" href="#y2022" title="2022년">22</a>
+    <a class="year-nav-link" href="#y2023" title="2023년">23</a>
+    <a class="year-nav-link" href="#y2024" title="2024년">24</a>
+    <a class="year-nav-link" href="#y2025" title="2025년">25</a>
+  </nav>
+
+  <section id="intro" class="snap-section intro-section" aria-label="인트로">
+    <div class="intro-inner">
+      <main class="card">
+        <p class="eyebrow">♥ 함께하는 네 번째 생일 ♥</p>
+        <h1>Happy Birthday</h1>
+        <p class="lead">
+          환하게 웃어주는 <br />
+          종일 함께하고 싶은 사람 <br />
+        </p>
+        <button type="button" class="btn" id="burst">BOOM!</button>
+      </main>
+      <!-- <p class="scroll-hint">아래로 스크롤하면 연도별 사진이 이어져요</p> -->
+    </div>
+  </section>
+
+  <section id="y2022" class="snap-section year-panel" aria-labelledby="t2022">
+    <header class="year-header">
+      <time class="year-date" datetime="2022-03-29">2022년 3월 29일</time>
+      <h2 id="t2022" class="year-title">2022 — 첫 번째 기록</h2>
+      <p class="year-note">그해의 한 줄을 적어 보세요.</p>
+    </header>
+    <div class="year-photos">
+      <figure class="year-hero-fig">
+        <img class="year-hero" src="images/2022-hero.jpg" alt="2022년 대표 사진" width="1200" height="800" loading="lazy" />
+      </figure>
+      <div class="year-gallery">
+        <img src="images/2022-1.jpg" alt="" width="600" height="600" loading="lazy" />
+        <img src="images/2022-2.jpg" alt="" width="600" height="600" loading="lazy" />
+        <img src="images/2022-3.jpg" alt="" width="600" height="600" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <section id="y2023" class="snap-section year-panel" aria-labelledby="t2023">
+    <header class="year-header">
+      <time class="year-date" datetime="2023-03-29">2023년 3월 29일</time>
+      <h2 id="t2023" class="year-title">2023 — 두 번째 기록</h2>
+      <p class="year-note">제목과 문구는 HTML에서 바꿀 수 있어요.</p>
+    </header>
+    <div class="year-photos">
+      <figure class="year-hero-fig">
+        <img class="year-hero" src="images/2023-hero.jpg" alt="2023년 대표 사진" width="1200" height="800" loading="lazy" />
+      </figure>
+      <div class="year-gallery">
+        <img src="images/2023-1.jpg" alt="" width="600" height="600" loading="lazy" />
+        <img src="images/2023-2.jpg" alt="" width="600" height="600" loading="lazy" />
+        <img src="images/2023-3.jpg" alt="" width="600" height="600" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <section id="y2024" class="snap-section year-panel" aria-labelledby="t2024">
+    <header class="year-header">
+      <time class="year-date" datetime="2024-03-29">2024년 3월 29일</time>
+      <h2 id="t2024" class="year-title">2024 — 세 번째 기록</h2>
+      <p class="year-note">사진 파일만 같은 이름으로 넣으면 표시돼요.</p>
+    </header>
+    <div class="year-photos">
+      <figure class="year-hero-fig">
+        <img class="year-hero" src="images/2024-hero.jpg" alt="2024년 대표 사진" width="1200" height="800" loading="lazy" />
+      </figure>
+      <div class="year-gallery">
+        <img src="images/2024-1.jpg" alt="" width="600" height="600" loading="lazy" />
+        <img src="images/2024-2.jpg" alt="" width="600" height="600" loading="lazy" />
+        <img src="images/2024-3.jpg" alt="" width="600" height="600" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <section id="y2025" class="snap-section year-panel" aria-labelledby="t2025">
+    <header class="year-header">
+      <time class="year-date" datetime="2025-03-29">2025년 3월 29일</time>
+      <h2 id="t2025" class="year-title">2025 — 네 번째 기록</h2>
+      <p class="year-note">스크롤로 연도를 넘기듯 볼 수 있어요.</p>
+    </header>
+    <div class="year-photos">
+      <figure class="year-hero-fig">
+        <img class="year-hero" src="images/2025-hero.jpg" alt="2025년 대표 사진" width="1200" height="800" loading="lazy" />
+      </figure>
+      <div class="year-gallery">
+        <img src="images/2025-1.jpg" alt="" width="600" height="600" loading="lazy" />
+        <img src="images/2025-2.jpg" alt="" width="600" height="600" loading="lazy" />
+        <img src="images/2025-3.jpg" alt="" width="600" height="600" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
