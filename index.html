@@ -10,60 +10,59 @@
   <canvas id="confetti" aria-hidden="true"></canvas>
 
   <nav class="year-nav" aria-label="연도로 이동">
+    <span class="year-nav-indicator" aria-hidden="true"></span>
     <a class="year-nav-link" href="#intro" title="인트로" aria-label="인트로"><span class="year-nav-dot" aria-hidden="true"></span></a>
-    <a class="year-nav-link" href="#y2022" title="2022년">22</a>
-    <a class="year-nav-link" href="#y2023" title="2023년">23</a>
-    <a class="year-nav-link" href="#y2024" title="2024년">24</a>
-    <a class="year-nav-link" href="#y2025" title="2025년">25</a>
+    <a class="year-nav-link" href="#y2025" title="2025년">2025</a>
+    <a class="year-nav-link" href="#y2024" title="2024년">2024</a>
+    <a class="year-nav-link" href="#y2023" title="2023년">2023</a>
+    <a class="year-nav-link" href="#y2022" title="2022년">2022</a>
   </nav>
+
+  <section id="gate" class="snap-section intro-section" aria-label="인트로(카운트다운)">
+    <div class="intro-inner">
+      <main class="card">
+        <p class="eyebrow">5년 전 그 날까지 남은 시간</p>
+        <h1 class="countdown-main" id="countdown" aria-live="polite">00:00:00</h1>
+        <button type="button" class="btn" id="start" disabled>기억하기</button>
+      </main>
+    </div>
+  </section>
 
   <section id="intro" class="snap-section intro-section" aria-label="인트로">
     <div class="intro-inner">
-      <main class="card">
-        <p class="eyebrow">♥ 함께하는 네 번째 생일 ♥</p>
-        <h1>Happy Birthday</h1>
-        <p class="lead">
-          환하게 웃어주는 <br />
-          종일 함께하고 싶은 사람 <br />
+      <div class="intro-hero" id="introHero">
+        <p class="eyebrow intro-hero-eyebrow" id="introEyebrow" data-typewriter="true">Happy Birthday</p>
+        <h1 class="intro-hero-title">생일축하해 내 사랑</h1>
+        <p class="lead intro-hero-lead">
+          ♥ 함께하는 다섯번째 생일 ♥ <br />
         </p>
-        <button type="button" class="btn" id="burst">BOOM!</button>
-      </main>
-      <!-- <p class="scroll-hint">아래로 스크롤하면 연도별 사진이 이어져요</p> -->
-    </div>
-  </section>
-
-  <section id="y2022" class="snap-section year-panel" aria-labelledby="t2022">
-    <header class="year-header">
-      <time class="year-date" datetime="2022-03-29">2022년 3월 29일</time>
-      <h2 id="t2022" class="year-title">2022 — 첫 번째 기록</h2>
-      <p class="year-note">그해의 한 줄을 적어 보세요.</p>
-    </header>
-    <div class="year-photos">
-      <figure class="year-hero-fig">
-        <img class="year-hero" src="images/2022-hero.jpg" alt="2022년 대표 사진" width="1200" height="800" loading="lazy" />
-      </figure>
-      <div class="year-gallery">
-        <img src="images/2022-1.jpg" alt="" width="600" height="600" loading="lazy" />
-        <img src="images/2022-2.jpg" alt="" width="600" height="600" loading="lazy" />
-        <img src="images/2022-3.jpg" alt="" width="600" height="600" loading="lazy" />
+        <button type="button" class="btn intro-hero-btn" id="burst">BOOM!</button>
       </div>
+      <button
+        type="button"
+        class="bgm-toggle"
+        id="bgmToggle"
+        aria-pressed="false"
+        aria-label="배경음악 재생"
+      >
+        <span class="sr-only">배경음악</span>
+      </button>
     </div>
   </section>
 
-  <section id="y2023" class="snap-section year-panel" aria-labelledby="t2023">
+  <section id="y2025" class="snap-section year-panel" aria-labelledby="t2025">
     <header class="year-header">
-      <time class="year-date" datetime="2023-03-29">2023년 3월 29일</time>
-      <h2 id="t2023" class="year-title">2023 — 두 번째 기록</h2>
-      <p class="year-note">제목과 문구는 HTML에서 바꿀 수 있어요.</p>
+      <time class="year-date" datetime="2025-03-29">2025년 3월 29일</time>
+      <h2 id="t2025" class="year-title">2025 — 전주</h2>
+      <!-- <p class="year-note">스크롤로 연도를 넘기듯 볼 수 있어요.</p> -->
     </header>
     <div class="year-photos">
-      <figure class="year-hero-fig">
-        <img class="year-hero" src="images/2023-hero.jpg" alt="2023년 대표 사진" width="1200" height="800" loading="lazy" />
-      </figure>
       <div class="year-gallery">
-        <img src="images/2023-1.jpg" alt="" width="600" height="600" loading="lazy" />
-        <img src="images/2023-2.jpg" alt="" width="600" height="600" loading="lazy" />
-        <img src="images/2023-3.jpg" alt="" width="600" height="600" loading="lazy" />
+        <img class="yy03-wide" src="img/25031.jpg" alt="2025년 YY03 이미지 1" width="600" height="600" loading="lazy" />        
+        <img class="yy03-wide" src="img/25034.jpg" alt="2025년 YY03 이미지 4" width="600" height="600" loading="lazy" />
+        <!-- <img class="yy03-wide" src="img/25032.jpg" alt="2025년 YY03 이미지 2" width="600" height="600" loading="lazy" /> -->
+        <img class="yy03-wide" src="img/25033.jpg" alt="2025년 YY03 이미지 3" width="600" height="600" loading="lazy" />
+        <!-- <img class="yy03-wide" src="img/25035.jpg" alt="2025년 YY03 이미지 5" width="600" height="600" loading="lazy" /> -->
       </div>
     </div>
   </section>
@@ -71,39 +70,111 @@
   <section id="y2024" class="snap-section year-panel" aria-labelledby="t2024">
     <header class="year-header">
       <time class="year-date" datetime="2024-03-29">2024년 3월 29일</time>
-      <h2 id="t2024" class="year-title">2024 — 세 번째 기록</h2>
-      <p class="year-note">사진 파일만 같은 이름으로 넣으면 표시돼요.</p>
+      <h2 id="t2024" class="year-title">2024 — 군산</h2>
+      <!-- <p class="year-note">사진 파일만 같은 이름으로 넣으면 표시돼요.</p> -->
     </header>
     <div class="year-photos">
-      <figure class="year-hero-fig">
-        <img class="year-hero" src="images/2024-hero.jpg" alt="2024년 대표 사진" width="1200" height="800" loading="lazy" />
-      </figure>
-      <div class="year-gallery">
-        <img src="images/2024-1.jpg" alt="" width="600" height="600" loading="lazy" />
-        <img src="images/2024-2.jpg" alt="" width="600" height="600" loading="lazy" />
-        <img src="images/2024-3.jpg" alt="" width="600" height="600" loading="lazy" />
+      <div class="year-gallery">        
+        <img class="yy03-wide" src="img/24035.jpg" alt="2024년 YY03 이미지 5" width="600" height="600" loading="lazy" />
+        <img class="yy03-wide" src="img/24031.jpg" alt="2024년 YY03 이미지 1" width="600" height="600" loading="lazy" />
+        <img class="yy03-wide" src="img/24032.jpg" alt="2024년 YY03 이미지 2" width="600" height="600" loading="lazy" />
+        <!-- <img class="yy03-wide" src="img/24033.jpg" alt="2024년 YY03 이미지 3" width="600" height="600" loading="lazy" /> -->
+        <img class="yy03-wide" src="img/24034.jpg" alt="2024년 YY03 이미지 4" width="600" height="600" loading="lazy" />
+        <!-- <img class="yy03-wide" src="img/24036.jpg" alt="2024년 YY03 이미지 6" width="600" height="600" loading="lazy" /> -->
       </div>
     </div>
   </section>
 
-  <section id="y2025" class="snap-section year-panel" aria-labelledby="t2025">
+  <section id="y2023" class="snap-section year-panel" aria-labelledby="t2023">
     <header class="year-header">
-      <time class="year-date" datetime="2025-03-29">2025년 3월 29일</time>
-      <h2 id="t2025" class="year-title">2025 — 네 번째 기록</h2>
-      <p class="year-note">스크롤로 연도를 넘기듯 볼 수 있어요.</p>
+      <time class="year-date" datetime="2023-03-29">2023년 3월 29일</time>
+      <h2 id="t2023" class="year-title">2023 — 나주</h2>
+      <!-- <p class="year-note">제목과 문구는 HTML에서 바꿀 수 있어요.</p> -->
     </header>
     <div class="year-photos">
-      <figure class="year-hero-fig">
-        <img class="year-hero" src="images/2025-hero.jpg" alt="2025년 대표 사진" width="1200" height="800" loading="lazy" />
-      </figure>
-      <div class="year-gallery">
-        <img src="images/2025-1.jpg" alt="" width="600" height="600" loading="lazy" />
-        <img src="images/2025-2.jpg" alt="" width="600" height="600" loading="lazy" />
-        <img src="images/2025-3.jpg" alt="" width="600" height="600" loading="lazy" />
+      <div class="year-gallery">        
+        <img class="yy03-wide" src="img/23038.jpg" alt="2023년 YY03 이미지 8" width="600" height="600" loading="lazy" />
+        <!-- <img class="yy03-wide" src="img/23031.jpg" alt="2023년 YY03 이미지 1" width="600" height="600" loading="lazy" /> -->
+        <!-- <img class="yy03-wide" src="img/23032.jpg" alt="2023년 YY03 이미지 2" width="600" height="600" loading="lazy" /> -->
+        <!-- <img class="yy03-wide" src="img/23033.jpg" alt="2023년 YY03 이미지 3" width="600" height="600" loading="lazy" /> -->
+        <!-- <img class="yy03-wide" src="img/23035.jpg" alt="2023년 YY03 이미지 5" width="600" height="600" loading="lazy" /> -->
+        <img class="yy03-wide" src="img/23036.jpg" alt="2023년 YY03 이미지 6" width="600" height="600" loading="lazy" />
+        <img class="yy03-wide" src="img/23037.jpg" alt="2023년 YY03 이미지 7" width="600" height="600" loading="lazy" />
+        <img class="yy03-wide" src="img/23034.jpg" alt="2023년 YY03 이미지 4" width="600" height="600" loading="lazy" />
       </div>
     </div>
   </section>
 
-  <script src="script.js"></script>
+  <section id="y2022" class="snap-section year-panel" aria-labelledby="t2022">
+    <header class="year-header">
+      <time class="year-date" datetime="2022-03-29">2022년 3월 29일</time>
+      <h2 id="t2022" class="year-title">2022 — 광주</h2>
+      <!-- <p class="year-note">그해의 한 줄을 적어 보세요.</p> -->
+    </header>
+    <div class="year-photos">
+      <div class="year-gallery">
+        <img class="yy03-wide" src="img/22037.jpg" alt="2022년 YY03 이미지 7" width="600" height="600" loading="lazy" />
+        <img class="yy03-wide" src="img/22031.jpg" alt="2022년 YY03 이미지 1" width="600" height="600" loading="lazy" />
+        <img class="yy03-wide" src="img/22032.jpg" alt="2022년 YY03 이미지 2" width="600" height="600" loading="lazy" />
+        <!-- <img class="yy03-wide" src="img/22033.jpg" alt="2022년 YY03 이미지 3" width="600" height="600" loading="lazy" /> -->
+        <!-- <img class="yy03-wide" src="img/22038.jpg" alt="2022년 YY03 이미지 8" width="600" height="600" loading="lazy" /> -->
+        <img class="yy03-wide" src="img/22039.jpg" alt="2022년 YY03 이미지 9" width="600" height="600" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <section id="bonus" class="snap-section year-panel" aria-labelledby="tBonus">
+    <header class="year-header">
+      <h2 id="tBonus" class="year-title">BONUS</h2>
+      <p class="year-note"></p>
+    </header>
+    <div class="year-photos">
+      <div class="year-gallery">
+        <img class="yy03-wide" src="img/22.webp" alt="보너스 이미지 4" width="600" height="600" loading="lazy" />
+        <img class="yy03-wide" src="img/2201.jpg" alt="보너스 이미지 5" width="600" height="600" loading="lazy" />
+        <img class="yy03-wide" src="img/22012.jpg" alt="보너스 이미지 6" width="600" height="600" loading="lazy" />
+        <img class="yy03-wide" src="img/22013.jpg" alt="보너스 이미지 7" width="600" height="600" loading="lazy" />
+        <img class="yy03-wide" src="img/22014.jpg" alt="보너스 이미지 8" width="600" height="600" loading="lazy" />
+        <img class="yy03-wide" src="img/22015.jpg" alt="보너스 이미지 9" width="600" height="600" loading="lazy" />        
+        <img class="yy03-wide" src="img/220310.jpg" alt="2022년 YY03 이미지 10" width="600" height="600" loading="lazy" />
+        <img class="yy03-wide" src="img/22034.jpg" alt="보너스 이미지 1" width="600" height="600" loading="lazy" />
+        <!-- <img class="yy03-wide" src="img/22035.jpg" alt="보너스 이미지 2" width="600" height="600" loading="lazy" />
+        <img class="yy03-wide" src="img/22036.jpg" alt="보너스 이미지 3" width="600" height="600" loading="lazy" /> -->
+      </div>
+    </div>
+  </section>
+
+  <button type="button" class="letter-btn" id="letterBtn" aria-label="편지 열기"></button>
+
+  <div class="modal" id="letterModal" aria-hidden="true">
+    <div class="modal-backdrop" data-modal-close="true"></div>
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="letterTitle">
+      <button type="button" class="modal-close" data-modal-close="true" aria-label="닫기">×</button>
+      <h2 class="modal-title" id="letterTitle">비밀번호</h2>
+
+      <div class="pin" id="pinWrap" aria-label="6자리 비밀번호 입력">
+        <input class="pin-digit" inputmode="numeric" pattern="[0-9]*" maxlength="1" />
+        <input class="pin-digit" inputmode="numeric" pattern="[0-9]*" maxlength="1" />
+        <input class="pin-digit" inputmode="numeric" pattern="[0-9]*" maxlength="1" />
+        <input class="pin-digit" inputmode="numeric" pattern="[0-9]*" maxlength="1" />
+        <input class="pin-digit" inputmode="numeric" pattern="[0-9]*" maxlength="1" />
+        <input class="pin-digit" inputmode="numeric" pattern="[0-9]*" maxlength="1" />
+      </div>
+
+      <p class="pin-help" id="pinHelp">6자리 숫자를 입력해줘</p>
+
+      <div class="letter" id="letterContent" hidden>
+        <h3 class="letter-title">제목</h3>
+        <p class="letter-body">
+          편지
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id="yt-bgm" class="yt-bgm" aria-hidden="true"></div>
+  <div id="yt-boom" class="yt-bgm" aria-hidden="true"></div>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="app.js"></script>
 </body>
 </html>
