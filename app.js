@@ -499,7 +499,7 @@
   }
 
   // -----------------------
-  // Intro GIF overlay (URL 바꾸면 index.html og:image·img/kakao-og.gif도 같이 맞출 것)
+  // Intro GIF overlay (og 썸네일은 index.html img/op.png)
   // -----------------------
   var INTRO_GIF_URL =
     "https://i.pinimg.com/originals/cb/33/13/cb33131c5474225ae9a6139a7c3a2404.gif";
@@ -576,8 +576,32 @@
 
     var PIN = "220103";
     var inputs = wrap.querySelectorAll(".pin-digit");
+    var scrollLockY = 0;
+
+    function lockBackgroundScroll() {
+      scrollLockY = window.scrollY || window.pageYOffset || 0;
+      document.documentElement.style.overflow = "hidden";
+      document.body.classList.add("letter-modal-open");
+      document.body.style.position = "fixed";
+      document.body.style.top = "-" + scrollLockY + "px";
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      document.body.style.width = "100%";
+    }
+
+    function unlockBackgroundScroll() {
+      document.documentElement.style.overflow = "";
+      document.body.classList.remove("letter-modal-open");
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.left = "";
+      document.body.style.right = "";
+      document.body.style.width = "";
+      window.scrollTo(0, scrollLockY);
+    }
 
     function open() {
+      lockBackgroundScroll();
       modal.setAttribute("aria-hidden", "false");
       if (help) {
         help.classList.remove("is-error");
@@ -590,6 +614,7 @@
 
     function close() {
       modal.setAttribute("aria-hidden", "true");
+      unlockBackgroundScroll();
     }
 
     function getValue() {

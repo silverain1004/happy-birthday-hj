@@ -75,6 +75,12 @@ body[data-phase="main"] #gate {
   display: none;
 }
 
+/* 편지 모달 열림: 뒤 페이지 스크롤 고정(JS에서 position:fixed 보조) */
+body.letter-modal-open {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
 .sr-only {
   position: absolute !important;
   width: 1px;
@@ -421,6 +427,8 @@ body[data-phase="main"] .intro-hero.is-visible {
   padding: 1.1rem 1rem 1rem;
   max-height: calc(100dvh - 24vh);
   overflow: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
   border-radius: 16px;
   background: rgba(26, 10, 46, 0.85);
