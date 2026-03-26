@@ -581,7 +581,7 @@
       modal.setAttribute("aria-hidden", "false");
       if (help) {
         help.classList.remove("is-error");
-        help.textContent = "6자리 숫자를 입력해줘.";
+        // help.textContent = "6자리 숫자를 입력해줘";
       }
       if (letter) letter.hidden = true;
       for (var i = 0; i < inputs.length; i++) inputs[i].value = "";
@@ -604,14 +604,14 @@
       if (v === PIN) {
         if (help) {
           help.classList.remove("is-error");
-          help.textContent = "열렸어.";
+          // help.textContent = "열렸어.";
         }
         if (letter) letter.hidden = false;
         return;
       }
       if (help) {
         help.classList.add("is-error");
-        help.textContent = "비밀번호가 아니야.";
+        // help.textContent = "비밀번호가 아니야.";
       }
       for (var i = 0; i < inputs.length; i++) inputs[i].value = "";
       if (inputs[0]) inputs[0].focus();
