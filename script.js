@@ -94,3 +94,61 @@
   var btn = document.getElementById("burst");
   if (btn) btn.addEventListener("click", burst);
 })();
+
+(function () {
+  var nav = document.querySelector(".year-nav");
+  if (!nav) return;
+
+  var links = nav.querySelectorAll(".year-nav-link");
+  var idToLink = {};
+  for (var i = 0; i < links.length; i++) {
+    var href = links[i].getAttribute("href");
+    if (href && href.charAt(0) === "#") idToLink[href.slice(1)] = links[i];
+  }
+
+  function setActive(id) {
+    for (var j = 0; j < links.length; j++) {
+      links[j].classList.remove("is-active");
+      links[j].removeAttribute("aria-current");
+    }
+    var active = idToLink[id];
+    if (active) {
+      active.classList.add("is-active");
+      active.setAttribute("aria-current", "true");
+    }
+  }
+
+  var sections = document.querySelectorAll(".snap-section");
+  if (!sections.length) return;
+  var ticking = false;
+
+  function updateActiveFromViewport() {
+    var viewportCenter = window.innerHeight * 0.5;
+    var closestId = "intro";
+    var closestDistance = Infinity;
+
+    for (var s = 0; s < sections.length; s++) {
+      var rect = sections[s].getBoundingClientRect();
+      var sectionCenter = rect.top + rect.height * 0.5;
+      var distance = Math.abs(sectionCenter - viewportCenter);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestId = sections[s].id || closestId;
+      }
+    }
+    setActive(closestId);
+  }
+
+  function requestUpdate() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      updateActiveFromViewport();
+      ticking = false;
+    });
+  }
+
+  window.addEventListener("scroll", requestUpdate, { passive: true });
+  window.addEventListener("resize", requestUpdate);
+  updateActiveFromViewport();
+})();
