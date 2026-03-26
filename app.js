@@ -499,7 +499,7 @@
   }
 
   // -----------------------
-  // Intro GIF overlay (URL 바꾸면 index.html og:image도 같이 맞출 것)
+  // Intro GIF overlay (URL 바꾸면 index.html og:image·img/kakao-og.gif도 같이 맞출 것)
   // -----------------------
   var INTRO_GIF_URL =
     "https://i.pinimg.com/originals/cb/33/13/cb33131c5474225ae9a6139a7c3a2404.gif";
